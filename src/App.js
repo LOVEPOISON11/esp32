@@ -4,7 +4,7 @@ const ESP_IP = "http://192.168.36.180";
 
 const App = () => {
   const handleAction = async (action) => {
-    await fetch(`${ESP_IP}/${action}`);
+    await fetch(`${ESP_IP}/${action}`);//change
 
   };
 
