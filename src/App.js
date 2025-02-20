@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+const ESP_IP = "http://192.168.36.180"; 
+
+const App = () => {
+  const handleAction = async (action) => {
+    await fetch(`${ESP_IP}/${action}`);
+
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>ESP32 Circuit Controller</h1>
+      <button
+        onClick={() => handleAction("on")}
+        style={{
+          padding: "15px",
+          fontSize: "20px",
+          background: "green",
+          color: "white",
+          marginRight: "20px",
+        }}
+      >
+        Turn ON
+      </button>
+      <button
+        onClick={() => handleAction("off")}
+        style={{
+          padding: "15px",
+          fontSize: "20px",
+          background: "red",
+          color: "white",
+        }}
+      >
+        Turn OFF
+      </button>
     </div>
   );
-}
+};
 
 export default App;
